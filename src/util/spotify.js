@@ -13,7 +13,7 @@ const Spotify = {
         if (accessTokenMatch && expiresInMatch) {
             userAccessToken = accessTokenMatch[1];
 
-            window.setTimeout(() => (userAccessToken = null), Number(expiresInMatch) * 1000);
+            window.setTimeout(() => (userAccessToken = null), Number(expiresInMatch[1]) * 1000);
             window.history.pushState('Access Token', null, '/');
         } else {
             window.location = `https://accounts.spotify.com/authorize?client_id=${SpotifyClientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${RedirectURL}`;
